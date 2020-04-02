@@ -126,7 +126,7 @@ class User {
 
                 default:
                     // name é o nome de cada um dos atributos
-                    this[name] = json[name]
+                    if(name.substring(0, 1) === '_') this[name] = json[name]
             }
         }
     }
@@ -203,11 +203,11 @@ class User {
 
             if(this.id){
 
-                promise = HttpRequest.put(`/users/${this.id}`, this.toJSON())
+                promise = Fetch.put(`/users/${this.id}`, this.toJSON())
 
             } else {
 
-                promise = HttpRequest.post('/users', this.toJSON())
+                promise = Fetch.post('/users', this.toJSON())
 
             }
 
@@ -296,7 +296,7 @@ class User {
     remove() {
 
         // Neste caso a nosso "promise é esse próprio return"
-        return HttpRequest.delete(`/users/${this.id}`);
+        return Fetch.delete(`/users/${this.id}`);
 
         // ***************************** ANTIGO - APAGANDO DO LOCAL STORAGE ********************************************//
         // // Primeiro precisamos carregar os valores que já existam (caso existam)
