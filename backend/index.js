@@ -38,8 +38,8 @@ const expressValidator = require('express-validator')
 const app = express()
 
 // Usando o body-parse
-app.use(bodyParse.urlencoded( { extended : false }));
-app.use(bodyParse.json());
+app.use(bodyParse.urlencoded( { extended : false, limit: '50mb' }));
+app.use(bodyParse.json( { limit: '50mb' } ));
 
 // Usando o expressValidator
 app.use(expressValidator())

@@ -5,8 +5,8 @@ module.exports = {
 // Usando o método "expressValidator" para validação dos dados
         // assert(campo, mensagem).validacao
         // notEmpty coloca obrigatoriedade para o campo não se vazio
-        req.assert('name', 'O nome é obrigatório').notEmpty();
-        req.assert('email', 'O nome está inválido').notEmpty().isEmail();
+        req.assert('_name', 'O nome é obrigatório').notEmpty();
+        req.assert('_email', 'O nome está inválido').notEmpty().isEmail();
 
         let errors = req.validationErrors();
 
